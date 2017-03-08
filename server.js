@@ -44,3 +44,17 @@ app.post('/courses', (req, res) => {
 		res.redirect('/courses')	
 	})
 })
+
+app.get('/destroy/:id', function(req, res) {
+	console.log(req.params)
+	var num = req.params.id.toString()
+	console.log(num)
+
+	db.collection('courses').remove({"courseNumber" : num}, function(err, result) {
+		if(err) {
+			return console.log(err)
+		}
+		res.redirect("/courses")
+		console.log('Course Deleted')
+	})
+})

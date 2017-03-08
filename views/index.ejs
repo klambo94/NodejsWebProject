@@ -15,7 +15,7 @@
 			<td>Course Description</td>
 			<td>Course Time</td>
 			<td>Course Date</td>
-			<td>Delete Course</td>
+			<td>Delete Course?</td>
 		</thead>
 		<tbody class="courses">
 			
@@ -27,7 +27,7 @@
 					<td><span><%= courses[i].courseDescription %></span></td>
 					<td><span><%= courses[i].courseTime %></span></td>
 					<td><span><%= courses[i].courseDate %></span></td>
-					<td><span>Delete Course?</span></td>
+					<td><span><a href='/destroy/<%= courses[i].courseNumber %>'>Delete Course</a></span></td>
 				</tr>
 			<% } %>
 		</tbody>
