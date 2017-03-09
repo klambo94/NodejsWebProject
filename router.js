@@ -1,11 +1,13 @@
-var HomeController = require('./Controller/HomeController')
+var CourseController = require('./Controller/courseController')
+var ScheduleController = require('./Controller/scheduleController')
 
 module.exports = function(app) {
-	app.get('/', HomeController.Index);
+	app.get('/', CourseController.Index);
 
-	app.get("/courses", HomeController.GetCourses);
+	app.get("/courses", CourseController.GetCourses);
 
-	app.post('/courses',HomeController.PostCourses);
+	app.post('/courses',CourseController.PostCourses);
 
-	app.get('/destroy/:id', HomeController.Destroy);
+	app.get('/destroy/:id', CourseController.Destroy);
+	app.get('/schedule/:id', ScheduleController.GetSchedule);
 }

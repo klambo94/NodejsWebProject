@@ -16,6 +16,7 @@
 		<td>Course Time</td>
 		<td>Course Date</td>
 		<td>Delete Course?</td>
+		<td>Add Course</td>
 	</thead>
 	<tbody class="courses">
 		
@@ -28,10 +29,12 @@
 				<td><span><%= courses[i].courseTime %></span></td>
 				<td><span><%= courses[i].courseDate %></span></td>
 				<td><span><a href='/destroy/<%= courses[i].courseNumber %>'>Delete Course</a></span></td>
+				<td><span><a href='/addCourse/<%= courses[i].courseNumber %>'>Add to Schedule</a></span></td>
 			</tr>
 		<% } %>
 	</tbody>
-</table>	
+</table>
+<a href="/"> Go Back To Add Course</a> 
 </body>
 <script type="public/error.js"></script>
 </html>
