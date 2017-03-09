@@ -6,32 +6,33 @@
 </title="University>
 </head>
 <body>
-	<h1>Courses</h1>
-	<table>
-		<thead>
-			<td>Course Number</td>
-			<td>Course Name</td>
-			<td>Course Professor</td>
-			<td>Course Description</td>
-			<td>Course Time</td>
-			<td>Course Date</td>
-			<td>Delete Course?</td>
-		</thead>
-		<tbody class="courses">
-			
-			<% for(var i = 0; i < courses.length; i++) { %>
-				<tr>
-					<td><span><%= courses[i].courseNumber %></span></td>
-					<td><span><%= courses[i].courseName %></span></td>
-					<td><span><%= courses[i].courseProfessor %></span></td>
-					<td><span><%= courses[i].courseDescription %></span></td>
-					<td><span><%= courses[i].courseTime %></span></td>
-					<td><span><%= courses[i].courseDate %></span></td>
-					<td><span><a href='/destroy/<%= courses[i].courseNumber %>'>Delete Course</a></span></td>
-				</tr>
-			<% } %>
-		</tbody>
-	</table>
+<h1>Courses</h1>
+<table>
+	<thead>
+		<td>Course Number</td>
+		<td>Course Name</td>
+		<td>Course Professor</td>
+		<td>Course Description</td>
+		<td>Course Time</td>
+		<td>Course Date</td>
+		<td>Delete Course?</td>
+	</thead>
+	<tbody class="courses">
+		
+		<% for(var i = 0; i < courses.length; i++) { %>
+			<tr>
+				<td><span><%= courses[i].courseNumber %></span></td>
+				<td><span><%= courses[i].courseName %></span></td>
+				<td><span><%= courses[i].courseProfessor %></span></td>
+				<td><span><%= courses[i].courseDescription %></span></td>
+				<td><span><%= courses[i].courseTime %></span></td>
+				<td><span><%= courses[i].courseDate %></span></td>
+				<td><span><a href='/destroy/<%= courses[i].courseNumber %>'>Delete Course</a></span></td>
+			</tr>
+		<% } %>
+	</tbody>
+</table>	
 </body>
+<script type="public/error.js"></script>
 </html>
-<body>
+
