@@ -14,12 +14,11 @@ MongoClient.connect('mongodb://klambo94:Password123@ds119380.mlab.com:19380/cata
 		return console.log(err)
 	} else {
 		db = database
-		console.log('connected to DB in HomeController');
 	}
 })
 
 exports.Index = function(req, res) {
-	res.sendFile('/home/ubuntu/Documents/Assignment3/index.html')
+	res.sendFile('/home/ubuntu/Documents/Assignment3/addCourse.html')
 }
 
 exports.GetCourses = function(req, res) {
@@ -63,4 +62,7 @@ exports.Destroy = function(req, res) {
 		res.redirect("/courses")
 		console.log('Course Deleted')
 	})
+}
+
+exports.AddCourse = function(req, res) {
 }

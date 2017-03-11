@@ -1,28 +1,44 @@
 console.log("May Node Be With You");
 
+//set up tools
 const express = require('express');
+const app = express();
+const port = process.env.PORT || 8080
+const mongoose = require('mongoose')
+const passport = require('passport')
+const flash = require('connect-flash')
+
+const morgan = require('morgan')
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
 const validator = require('express-validator')
 const bodyParser =require('body-parser')
 const MongoClient = require('mongodb').MongoClient
-const app = express();
 
+const configDB  = require('./config/database.js')
+
+//configuration
+mongoose.connect(configDB.url);
+
+require('./config/passport')(passport);
+
+// set up express application
+app.use(morgan('dev'))
+app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(validator())
 app.set('view engine', 'ejs')
 
-var db
-MongoClient.connect('mongodb://klambo94:Password123@ds119380.mlab.com:19380/catalog-db', (err, database) => {
-	if(err){
-		return console.log(err)
-	} else {
-		db = database
-		app.listen(3000, function() {
-			console.log('Listening on 3000');
-		})
-	}
-		
-})
 
+//required for passport
+app.use(session({secret: 'ilovescotchscotchyscotchscotch'}))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(flash())
 
+//routes
+require('./app/router.js')(app, passport);
 
-require('./router')(app);
+//launch 
+app.listen(port)
+console.log("Listening on port " + port)
