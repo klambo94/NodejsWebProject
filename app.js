@@ -31,7 +31,11 @@ app.set('view engine', 'ejs')
 
 
 //required for passport
-app.use(session({secret: 'ilovescotchscotchyscotchscotch'}))
+app.use(session({
+	secret: 'ilovescotchscotchyscotchscotch',
+	resave: true, 
+	saveUninitialized: true,
+}))
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())

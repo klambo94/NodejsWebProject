@@ -18,14 +18,14 @@ MongoClient.connect('mongodb://klambo94:Password123@ds119380.mlab.com:19380/cata
 })
 
 exports.Index = function(req, res) {
-	res.sendFile('/home/ubuntu/Documents/Assignment3/addCourse.html')
+	res.sendFile('/home/ubuntu/Documents/Assignment3/index.html')
 }
 
 exports.GetCourses = function(req, res) {
 	db.collection('courses').find().toArray(function(err, result){
 		if(err) return console.log(err)
 
-		res.render('index.ejs', {courses: result})
+		res.render('/home/ubuntu/Documents/Assignment3/views/addCourse.ejs', {courses: result})
 	});
 }
 

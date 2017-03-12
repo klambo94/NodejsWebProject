@@ -3,10 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Univerity Catalog</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netden.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		body   {padding-top80px;}
+	</style>
 </title="University>
 </head>
 <body>
 	<h1>Add A Course</h1> 
+	<a href="/logout" class="btn btn-default btn sm">Logout</a>
 	<form action="/courses" method="POST">
 		<input type="text" placeholder="Course Name" name="courseName">
 		<input type="text" placeholder="Course Number" name="courseNumber">
