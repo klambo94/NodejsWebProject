@@ -6,6 +6,7 @@
 </title="University>
 </head>
 <body>
+<a href="/logout" class="btn btn-default btn sm">Logout</a>
 	<h1>Detail Schedule</h1>
 	<table>
 	<thead>
@@ -15,24 +16,28 @@
 		<td>Course Description</td>
 		<td>Course Time</td>
 		<td>Course Date</td>
-		<td>Delete Course?</td>
-		<td>Add Course</td>
+		<td>Drop course?</td>
 	</thead>
 	<tbody class="courses">
-		
-		<% for(var i = 0; i < courses.length; i++) { %>
-			<tr>
-				<td><span><%= courses[i].courseNumber %></span></td>
-				<td><span><%= courses[i].courseName %></span></td>
-				<td><span><%= courses[i].courseProfessor %></span></td>
-				<td><span><%= courses[i].courseDescription %></span></td>
-				<td><span><%= courses[i].courseTime %></span></td>
-				<td><span><%= courses[i].courseDate %></span></td>
-				<td><span><a href='/destroy/<%= courses[i].courseNumber %>'>Delete Course</a></span></td>
-				<td><span><a href='/addCourse/<%= courses[i].courseNumber %>'>Add to Schedule</a></span></td>
-			</tr>
-		<% } %>
+	<% for(var s = 0; s< schedule.length; s++) { %>
+		<% if( schedule[s].email == email) { %>
+			<% for(var c = 0 ; c < courses.length ; c++) { %>
+				<% if(schedule[s].lineItem == courses[c].courseNumber) { %>
+					<tr>
+						<td><span><%= courses[c].courseNumber %></span></td>
+						<td><span><%= courses[c].courseName %></span></td>
+						<td><span><%= courses[c].courseProfessor %></span></td>
+						<td><span><%= courses[c].courseDescription %></span></td>
+						<td><span><%= courses[c].courseTime %></span></td>
+						<td><span><%= courses[c].courseDate %></span></td>
+						<td><a href="/dropCourse/<%=courses[c].courseNumber%>"> Drop</a></td>
+					</tr>
+				<% } %>
+			<%}%>
+		<%}%>
+	<% } %>
 	</tbody>
+	
 </table>
-<a href="/Courses"> Go Back To Add Course</a> 
+<a href="/Courses"> Go Back To Courses</a> 
 </body>

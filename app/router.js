@@ -10,14 +10,14 @@ module.exports = function(app, passport) {
 	app.get('/', UserController.HomePage);
 	app.get('/login', UserController.GetLogin)
 	app.post('/login', passport.authenticate('local-login', {
-		successRedirect: '/profile',
+		successRedirect: '/courses',
 		failureRedirect: '/login',
 		failureFlash: true
 	}))
 	app.get('/signup', UserController.GetSignUp)
 	app.post('/signup', passport.authenticate('local-signup',{
 			
-			successRedirect : '/profile', 
+			successRedirect : '/courses', 
 			failureRedirect : '/signup', 
 			failureFlash : true
 	}))
@@ -34,5 +34,7 @@ module.exports = function(app, passport) {
 	app.get('/destroy/:id', CourseController.Destroy);
 
 	//Schedule Controllers
-	app.get('/schedule/:id', ScheduleController.GetSchedule);
+	app.get('/addCourse/:id', ScheduleController.GetSchedule);
+	app.get('/viewSchedule', ScheduleController.ViewSchedule);
+	app.get('/dropCourse/:id', ScheduleController.DropCourse)
 }

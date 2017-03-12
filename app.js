@@ -39,6 +39,15 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
+app.use(function setCurrentUser(req, res, next){
+	if(req.accessToken) {
+		app.models.User.findById(req.accessToken.userId, (err, user) => {
+			if(!err)
+				req.user = user;
+		})
+	}
+	next()
+})
 
 //routes
 require('./app/router.js')(app, passport);

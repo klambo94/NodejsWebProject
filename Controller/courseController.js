@@ -25,7 +25,7 @@ exports.GetCourses = function(req, res) {
 	db.collection('courses').find().toArray(function(err, result){
 		if(err) return console.log(err)
 
-		res.render('/home/ubuntu/Documents/Assignment3/views/addCourse.ejs', {courses: result})
+		res.render('/home/ubuntu/Documents/Assignment3/views/course.ejs', {courses: result})
 	});
 }
 
@@ -51,7 +51,6 @@ exports.PostCourses = function (req, res) {
 }
 
 exports.Destroy = function(req, res) {
-	console.log(req.params)
 	var num = req.params.id.toString()
 	console.log(num)
 
@@ -62,7 +61,4 @@ exports.Destroy = function(req, res) {
 		res.redirect("/courses")
 		console.log('Course Deleted')
 	})
-}
-
-exports.AddCourse = function(req, res) {
 }
