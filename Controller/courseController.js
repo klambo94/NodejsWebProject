@@ -7,6 +7,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(validator())
 app.set('view engine', 'ejs')
+var path = '/home/ubuntu/Documents/NodejsWebProject/views'
 
 var db;
 MongoClient.connect('mongodb://klambo94:Password123@ds119380.mlab.com:19380/catalog-db', (err, database) => {
@@ -18,14 +19,14 @@ MongoClient.connect('mongodb://klambo94:Password123@ds119380.mlab.com:19380/cata
 })
 
 exports.Index = function(req, res) {
-	res.sendFile('/home/ubuntu/Documents/Assignment3/index.html')
+	res.sendFile('/home/ubuntu/Documents/NodejsWebProject/index.html')
 }
 
 exports.GetCourses = function(req, res) {
 	db.collection('courses').find().toArray(function(err, result){
 		if(err) return console.log(err)
 
-		res.render('/home/ubuntu/Documents/Assignment3/views/course.ejs', {courses: result})
+		res.render(path +'/course.ejs', {courses: result})
 	});
 }
 

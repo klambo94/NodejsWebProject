@@ -1,4 +1,4 @@
-var path = '/home/ubuntu/Documents/Assignment3/views/'
+var path = '/home/ubuntu/Documents/NodejsWebProject/views'
 exports.HomePage = function(req, res) {
 	res.render(path + 'index.ejs');
 }

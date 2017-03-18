@@ -22,6 +22,7 @@ const app = express();
 
 app.use(passport.session())
 
+var path = '/home/ubuntu/Documents/NodejsWebProject/views'
 exports.GetSchedule = function(req, res) {
 	var courseNum = req.params.id.toString();
 	var currentEmail = req.user.email;
@@ -46,7 +47,7 @@ exports.ViewSchedule = function(req, res) {
 
 			db.collection('schedules').find().toArray(function(err, scheResult){
 				if(err) return console.log(err)
-					res.render('/home/ubuntu/Documents/Assignment3/views/schedule.ejs', {courses: courseResult, 
+					res.render(path + '/schedule.ejs', {courses: courseResult, 
 																						 email: currentEmail,
 																						 schedule: scheResult})
 			})
