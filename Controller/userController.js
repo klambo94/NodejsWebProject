@@ -1,10 +1,10 @@
 var path = '/home/ubuntu/Documents/NodejsWebProject/views'
 exports.HomePage = function(req, res) {
-	res.render(path + 'index.ejs');
+	res.render(path + '/index.ejs');
 }
 
 exports.GetLogin = function(req, res) {
-	res.render(path + 'login.ejs', {message: req.flash('loginMessage')});
+	res.render(path + '/login.ejs', {message: req.flash('loginMessage')});
 }
 
 exports.PostLogin = function(req, res) {
@@ -12,13 +12,13 @@ exports.PostLogin = function(req, res) {
 }
 
 exports.GetSignUp = function(req, res) {
-	res.render(path + 'signup.ejs', {message: req.flash('signupMessage')})
+	res.render(path + '/signup.ejs', {message: req.flash('signupMessage')})
 }
 
 
 
 exports.Profile = function(req, res) {
-	res.render('profile.ejs', {
+	res.render('/profile.ejs', {
 		user : req.user // get user out of session and pass to template
 	})
 }
