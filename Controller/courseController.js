@@ -19,7 +19,7 @@ MongoClient.connect('mongodb://klambo94:Password123@ds119380.mlab.com:19380/cata
 })
 
 exports.Index = function(req, res) {
-	res.sendFile('/home/ubuntu/Documents/NodejsWebProject/index.html')
+	res.sendFile(path +'/addCourse.ejs')
 }
 
 exports.GetCourses = function(req, res) {
@@ -39,7 +39,7 @@ exports.PostCourses = function (req, res) {
 
 	var errors = req.validationErrors();
 	if(errors){
-		res.send(errors);
+		res.render(path + '/addCourse.ejs' , {errors: errors});
 		return;
 	} else {
 		db.collection('courses').save(req.body, (err, result) => {
