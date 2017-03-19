@@ -19,7 +19,7 @@ MongoClient.connect('mongodb://klambo94:Password123@ds119380.mlab.com:19380/cata
 })
 
 exports.Index = function(req, res) {
-	res.sendFile(path +'/addCourse.ejs')
+	res.render(path +'/addCourse.ejs', {errors: null})
 }
 
 exports.GetCourses = function(req, res) {
